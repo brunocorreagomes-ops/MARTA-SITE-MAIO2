@@ -7,7 +7,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { useTestimonials } from './hooks/useTestimonials';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,9 +104,9 @@ function Hero() {
           <div className="relative w-full max-w-[340px] sm:max-w-[440px] md:max-w-[500px] aspect-square md:aspect-[4/5] rounded-[40px_16px_40px_16px] md:rounded-[100px_40px_100px_40px] overflow-hidden shadow-xl md:shadow-2xl">
             <img 
               loading="lazy"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuEydYzA2ud1E3U2VZ4-cNkIBELEjAhgUb4xqT3hPCcAJHH-IE26hJnt7HpF16rzNbDRwNtuEnKY_LzTxKPEwBhsEZbKR3VG24YceRg9YJRSTeL99MpV6fJCjW65DGtGJmsZ-CfD29Z4CktYVBjkEwS8xSfBQJTgVPJ8amKJ7ppKhOlq82L7uXnjoNrK6tGkiIxgFxPWrwHTmXh7QVx9em3Jeak1ygOxSZh4zfIe08TOxJRmXEVfKcBXv5lry_eyL_3wfWejgL6-w" 
-              alt="Quartzo Rosa - Macro Photography" 
-              className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000"
+              src="https://i.ibb.co/cXbDVjF6/marta-site05.webp" 
+              alt="Marta Ana Chiconato - Terapia Holística" 
+              className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-1000"
             />
           </div>
           
@@ -309,10 +308,11 @@ function About() {
             <div className="relative overflow-hidden rounded-[40px_100px] shadow-2xl aspect-[4/5] md:aspect-auto md:h-[700px] w-full">
               <img 
                 loading="lazy"
-                src="https://i.ibb.co/wrS3cx2H/marta-foto-site-01.webp" 
+                src="https://i.ibb.co/cXbDVjF6/marta-site05.webp" 
                 alt="Marta Ana Chiconato - Terapia Integrativa" 
-                className="w-full h-full object-cover grayscale-[15%] sepia-[5%]"
+                className="w-full h-full object-cover object-center grayscale-[30%] sepia-[15%] contrast-[1.1] transform hover:scale-105 transition-transform duration-1000"
               />
+              <div className="absolute inset-0 bg-bordeaux/10 mix-blend-multiply" />
             </div>
           </div>
         </div>
@@ -342,7 +342,24 @@ function About() {
 }
 
 function Testimonials() {
-  const { testimonials } = useTestimonials();
+  const testimonials = [
+    {
+      quote: "Fazer meu mapa numerológico online com a Marta foi um divisor de águas. O material personalizado que recebi é um guia meticuloso que consulto diariamente. A distância não diminuiu em nada a conexão, pelo contrário, deixou tudo mais confortável.",
+      author: "Carolina S.",
+      service: "Numerologia Online"
+    },
+    {
+      quote: "A harmonização à distância pela radiestesia trouxe uma leveza imediata para minha casa e meus negócios. O relatório detalhado me ajudou a entender padrões e pontos de energia que eu jamais imaginaria, de forma muito clara.",
+      author: "Mariana L.",
+      service: "Radiestesia à Distância"
+    },
+    {
+      quote: "A leitura do baralho cigano online me deu a direção estratégica e acolhedora que eu precisava. O atendimento é primoroso, superou todas as minhas expectativas e me passou muita confiança para os próximos passos.",
+      author: "Juliana M.",
+      service: "Baralho Cigano Online"
+    }
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -477,7 +494,6 @@ function Footer() {
                 <li><a href="#faq" onClick={(e) => scrollToMenuId(e, 'faq')} className="hover:text-bordeaux transition-colors">FAQ</a></li>
                 <li><Link to="/privacidade" className="hover:text-bordeaux transition-colors">Privacidade</Link></li>
                 <li><Link to="/termos" className="hover:text-bordeaux transition-colors">Termos</Link></li>
-                <li><Link to="/admin" className="hover:text-bordeaux transition-colors">Área do Cliente (Admin)</Link></li>
               </ul>
             </div>
             <div className="space-y-6 hidden md:block">

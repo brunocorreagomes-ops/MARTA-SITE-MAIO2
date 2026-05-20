@@ -4,7 +4,6 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import App from './App.tsx';
 import Privacy from './Privacy.tsx';
 import Terms from './Terms.tsx';
-import Admin from './Admin.tsx';
 import './index.css';
 
 function ScrollToTop() {
@@ -23,7 +22,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />} />
         <Route path="/privacidade" element={<Privacy />} />
         <Route path="/termos" element={<Terms />} />
-        <Route path="/admin" element={<Admin />} />
       </Routes>
     </HashRouter>
   </StrictMode>,
