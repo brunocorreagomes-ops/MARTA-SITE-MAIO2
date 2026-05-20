@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -106,7 +106,7 @@ function Hero() {
               loading="lazy"
               src="https://i.ibb.co/cXbDVjF6/marta-site05.webp" 
               alt="Marta Ana Chiconato - Terapia Holística" 
-              className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover object-[center_22%] md:object-top transform hover:scale-105 transition-transform duration-1000"
             />
           </div>
           
@@ -647,13 +647,28 @@ function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-rose-gold text-white shadow-lg transition-all duration-300 hover:bg-bordeaux hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 ${
+      className={`fixed bottom-8 right-6 md:right-8 z-50 p-3 rounded-full bg-rose-gold text-white shadow-lg transition-all duration-300 hover:bg-bordeaux hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
       }`}
       aria-label="Voltar ao topo"
     >
       <ChevronUp size={24} strokeWidth={2} />
     </button>
+  );
+}
+
+function MobileCTA() {
+  return (
+    <a
+      href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada%20e%20agendar%20uma%20consulta."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-8 left-6 right-22 md:hidden z-50 flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#25D366] text-white font-body text-xs font-semibold tracking-wider uppercase shadow-xl active:scale-95 transition-all duration-300 border border-emerald-400/30 hover:bg-[#20ba54]"
+      id="mobile-bottom-cta"
+    >
+      <MessageCircle size={16} className="text-white shrink-0 animate-pulse" />
+      <span>Agendar via WhatsApp</span>
+    </a>
   );
 }
 
@@ -670,6 +685,7 @@ export default function App() {
       <Contact />
       <Footer />
       <BackToTop />
+      <MobileCTA />
     </div>
   );
 }
