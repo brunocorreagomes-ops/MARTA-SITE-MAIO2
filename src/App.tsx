@@ -42,7 +42,7 @@ function Navbar() {
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="https://i.ibb.co/ZRyY8vsp/marta-logo-site.webp" alt="Marta Ana Chiconato" className="h-12 md:h-14 object-contain" />
+            <img loading="lazy" src="https://i.ibb.co/ZRyY8vsp/marta-logo-site.webp" alt="Marta Ana Chiconato" className="h-12 md:h-14 object-contain" />
           </div>
           
           <div className="hidden md:flex items-center gap-10">
@@ -103,6 +103,7 @@ function Hero() {
         <div className="md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative mt-12 md:mt-0">
           <div className="relative w-full max-w-[500px] aspect-square md:aspect-[4/5] rounded-[100px_40px_100px_40px] overflow-hidden shadow-2xl">
             <img 
+              loading="lazy"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuEydYzA2ud1E3U2VZ4-cNkIBELEjAhgUb4xqT3hPCcAJHH-IE26hJnt7HpF16rzNbDRwNtuEnKY_LzTxKPEwBhsEZbKR3VG24YceRg9YJRSTeL99MpV6fJCjW65DGtGJmsZ-CfD29Z4CktYVBjkEwS8xSfBQJTgVPJ8amKJ7ppKhOlq82L7uXnjoNrK6tGkiIxgFxPWrwHTmXh7QVx9em3Jeak1ygOxSZh4zfIe08TOxJRmXEVfKcBXv5lry_eyL_3wfWejgL6-w" 
               alt="Quartzo Rosa - Macro Photography" 
               className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000"
@@ -207,7 +208,7 @@ function Services() {
             >
               <div className="w-full">
                 <motion.div layoutId={`service-image-${i}`} className="w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/3] mb-8 overflow-hidden rounded-2xl relative shadow-sm">
-                  <img src={s.image} alt={s.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                  <img loading="lazy" src={s.image} alt={s.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md text-bordeaux flex items-center justify-center shadow-lg">
                     <s.icon size={24} strokeWidth={1.5} />
                   </div>
@@ -247,7 +248,7 @@ function Services() {
               className="bg-blush-sand rounded-[32px] max-w-2xl w-full relative z-10 shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
             >
               <div className="w-full h-56 md:h-72 relative shrink-0">
-                 <motion.img layoutId={`service-image-${activeServiceIndex}`} src={activeService.image} className="w-full h-full object-cover" alt={activeService.title} />
+                 <motion.img loading="lazy" layoutId={`service-image-${activeServiceIndex}`} src={activeService.image} className="w-full h-full object-cover" alt={activeService.title} />
                  <div className="absolute inset-0 bg-gradient-to-t from-blush-sand via-blush-sand/40 to-transparent"></div>
                  <button onClick={() => setActiveServiceIndex(null)} className="absolute top-6 right-6 md:top-8 md:right-8 z-20 text-warm-ink/60 hover:text-bordeaux transition-colors bg-white/90 backdrop-blur-md rounded-full p-2 shadow-sm flex items-center justify-center">
                    <X size={20} strokeWidth={1.5} />
@@ -306,6 +307,7 @@ function About() {
             
             <div className="relative overflow-hidden rounded-[40px_100px] shadow-2xl aspect-[4/5] md:aspect-auto md:h-[700px] w-full">
               <img 
+                loading="lazy"
                 src="https://i.ibb.co/wrS3cx2H/marta-foto-site-01.webp" 
                 alt="Marta Ana Chiconato - Terapia Integrativa" 
                 className="w-full h-full object-cover grayscale-[15%] sepia-[5%]"
@@ -433,7 +435,7 @@ function Footer() {
           
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center">
-              <img src="https://i.ibb.co/ZRyY8vsp/marta-logo-site.webp" alt="Marta Ana Chiconato" className="h-14 object-contain" />
+              <img loading="lazy" src="https://i.ibb.co/ZRyY8vsp/marta-logo-site.webp" alt="Marta Ana Chiconato" className="h-14 object-contain" />
             </div>
             <p className="font-body text-base font-light text-warm-ink/70 max-w-sm leading-relaxed">
               Terapia Integrativa.
