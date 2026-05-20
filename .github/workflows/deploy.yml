@@ -32,7 +32,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
       - name: Build
-        run: npx vite build
+        run: npm run build
+        env:
+          VITE_BASE: ${{ steps.pages.outputs.base_path }}/
       - name: No Jekyll
         run: touch ./dist/.nojekyll
       - name: Upload artifact
