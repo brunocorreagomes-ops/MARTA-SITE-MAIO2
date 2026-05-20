@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTestimonials } from './hooks/useTestimonials';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -341,26 +342,21 @@ function About() {
 }
 
 function Testimonials() {
-  const testimonials = [
-    {
-      quote: "Fazer meu mapa numerológico online com a Marta foi um divisor de águas. O material personalizado que recebi é um guia meticuloso que consulto diariamente. A distância não diminuiu em nada a conexão, pelo contrário, deixou tudo mais confortável.",
-      author: "Carolina S.",
-      service: "Numerologia Online"
-    },
-    {
-      quote: "A harmonização à distância pela radiestesia trouxe uma leveza imediata para minha casa e meus negócios. O relatório detalhado me ajudou a entender padrões e pontos de energia que eu jamais imaginaria, de forma muito clara.",
-      author: "Mariana L.",
-      service: "Radiestesia à Distância"
-    },
-    {
-      quote: "A leitura do baralho cigano online me deu a direção estratégica e acolhedora que eu precisava. O atendimento é primoroso, superou todas as minhas expectativas e me passou muita confiança para os próximos passos.",
-      author: "Juliana M.",
-      service: "Baralho Cigano Online"
-    }
-  ];
+  const { testimonials } = useTestimonials();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  if (testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 md:py-32 bg-dusty-rose/10">
+    <section className="py-24 md:py-32 bg-dusty-rose/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="text-center mb-16 md:mb-24">
           <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
@@ -371,22 +367,41 @@ function Testimonials() {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <div 
-              key={i} 
-              className="bg-white p-10 rounded-[32px] shadow-sm border border-warm-ink/5 hover:shadow-2xl hover:border-dusty-rose/40 transition-all duration-500 hover:-translate-y-2 flex flex-col"
+        <div className="relative max-w-4xl mx-auto flex flex-col items-center">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="bg-white p-10 md:p-14 rounded-[40px] shadow-sm border border-warm-ink/5 w-full flex flex-col items-center text-center"
             >
-              <Quote size={32} className="text-rose-gold/40 mb-8" strokeWidth={1} />
-              <p className="font-body text-lg font-light text-warm-ink/80 leading-relaxed mb-10 flex-grow">
-                "{t.quote}"
+              <Quote size={40} className="text-rose-gold/40 mb-8" strokeWidth={1} />
+              <p className="font-body text-xl md:text-2xl font-light text-warm-ink/80 leading-relaxed mb-10 text-balance max-w-2xl">
+                "{testimonials[currentIndex].quote}"
               </p>
-              <div className="mt-auto">
-                <h4 className="font-body text-sm font-bold text-bordeaux uppercase tracking-widest mb-1">{t.author}</h4>
-                <span className="font-body text-[10px] font-semibold text-rose-gold uppercase tracking-widest">{t.service}</span>
+              <div>
+                <h4 className="font-body text-sm font-bold text-bordeaux uppercase tracking-widest mb-1">{testimonials[currentIndex].author}</h4>
+                <span className="font-body text-[10px] font-semibold text-rose-gold uppercase tracking-widest">{testimonials[currentIndex].service}</span>
               </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {testimonials.length > 1 && (
+            <div className="flex gap-3 justify-center mt-12">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    i === currentIndex ? 'bg-bordeaux scale-125' : 'bg-bordeaux/20 hover:bg-bordeaux/40'
+                  }`}
+                  aria-label={`Ir para depoimento ${i + 1}`}
+                />
+              ))}
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>
@@ -462,6 +477,7 @@ function Footer() {
                 <li><a href="#faq" onClick={(e) => scrollToMenuId(e, 'faq')} className="hover:text-bordeaux transition-colors">FAQ</a></li>
                 <li><Link to="/privacidade" className="hover:text-bordeaux transition-colors">Privacidade</Link></li>
                 <li><Link to="/termos" className="hover:text-bordeaux transition-colors">Termos</Link></li>
+                <li><Link to="/admin" className="hover:text-bordeaux transition-colors">Área do Cliente (Admin)</Link></li>
               </ul>
             </div>
             <div className="space-y-6 hidden md:block">
