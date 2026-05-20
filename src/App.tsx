@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -13,6 +13,12 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    document.title = "Marta Ana Chiconato | Terapia Integrativa em Indaiatuba";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Terapia Integrativa e Espaço de Equilíbrio em Indaiatuba. Redescubra o autoconhecimento e bem-estar físico e mental com Marta Ana Chiconato. Atendimento presencial e online.');
+    }
+
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

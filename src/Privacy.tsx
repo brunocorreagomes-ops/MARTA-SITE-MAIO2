@@ -1,7 +1,16 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = "Política de Privacidade | Marta Ana Chiconato Terapia em Indaiatuba";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Política de Privacidade e Proteção de Dados (LGPD) do espaço de Terapia Integrativa com Marta Ana Chiconato em Indaiatuba, focado no seu bem-estar.');
+    }
+  }, []);
+
   return (
     <div className="bg-blush-sand text-warm-ink font-body min-h-screen selection:bg-rose-gold selection:text-white">
       <nav className="fixed top-0 w-full z-50 bg-blush-sand/90 backdrop-blur-xl shadow-sm py-4">
@@ -30,7 +39,7 @@ export default function Privacy() {
           <section>
             <h2 className="font-display text-2xl text-bordeaux font-medium mb-4">1. Introdução</h2>
             <p className="mb-4">
-              A privacidade e a segurança dos dados dos nossos clientes e usuários são prioridades para Marta Ana Chiconato - Terapia Integrativa. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
+              A privacidade e a segurança dos dados dos nossos clientes e interagentes são prioridades absolutas para o espaço de <strong>Terapia Integrativa Marta Ana Chiconato</strong>, localizado em <strong>Indaiatuba - SP</strong>. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais, em total conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
             </p>
           </section>
 

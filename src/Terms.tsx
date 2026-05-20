@@ -1,7 +1,16 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 export default function Terms() {
+  useEffect(() => {
+    document.title = "Termos de Serviço | Marta Ana Chiconato Terapia em Indaiatuba";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Termos de Serviço para agendamento e realização de sessões de Terapia Integrativa, Reiki, Numerologia e Radiestesia com Marta Ana Chiconato em Indaiatuba.');
+    }
+  }, []);
+
   return (
     <div className="bg-blush-sand text-warm-ink font-body min-h-screen selection:bg-rose-gold selection:text-white">
       <nav className="fixed top-0 w-full z-50 bg-blush-sand/90 backdrop-blur-xl shadow-sm py-4">
@@ -30,7 +39,7 @@ export default function Terms() {
           <section>
             <h2 className="font-display text-2xl text-bordeaux font-medium mb-4">1. Aceitação dos Termos</h2>
             <p className="mb-4">
-              Ao acessar este site e/ou agendar uma sessão com Marta Ana Chiconato - Terapia Integrativa, você concorda com os presentes Termos de Serviço e com a nossa Política de Privacidade. Caso não concorde com algum dos termos, por favor, não prossiga com a utilização de nossos serviços.
+              Ao acessar o site martaana-terapia.com.br e/ou agendar uma sessão presencial no espaço de <strong>Terapia Integrativa com Marta Ana Chiconato em Indaiatuba</strong> ou em formato online, você concorda plenamente com os presentes Termos de Serviço e com a nossa Política de Privacidade. Caso não concorde com algum dos termos, por favor, não prossiga com a utilização de nossos serviços de autoconhecimento e bem-estar (Reiki, Radiestesia, Baralho Cigano ou Numerologia).
             </p>
           </section>
 
