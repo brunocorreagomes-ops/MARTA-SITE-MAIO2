@@ -1,0 +1,6 @@
+{
+  "name": "Marta Ana Chiconato - Terapia Integrativa",
+  "description": "Terapia Integrativa e Autoconhecimento em Indaiatuba. Atendimento presencial focado em equilíbrio, bem-estar e clareza mental, com práticas holísticas adaptadas para você.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

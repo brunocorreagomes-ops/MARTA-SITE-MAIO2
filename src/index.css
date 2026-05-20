@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bordeaux: #592025;
+  --color-rose-gold: #C5A07A;
+  --color-dusty-rose: #E8D5C8;
+  --color-blush-sand: #FDFBF7;
+  --color-warm-ink: #2D1B1D;
+  --color-surface-bright: #FBF9F5;
+
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-body: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-blush-sand);
+  color: var(--color-warm-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
