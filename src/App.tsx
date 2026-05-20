@@ -78,31 +78,31 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[95vh] flex items-center pt-24 pb-12 overflow-hidden">
+    <section className="relative min-h-[95vh] flex items-center pt-28 pb-16 md:pt-24 md:pb-12 overflow-hidden">
       {/* Soft Glow Background Element */}
       <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-dusty-rose/40 blur-[100px] pointer-events-none" />
       
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10 w-full">
-        <div className="md:col-span-6 lg:col-span-5 space-y-8 flex flex-col items-start text-left">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-center relative z-10 w-full">
+        <div className="order-2 md:order-1 md:col-span-6 lg:col-span-5 space-y-6 md:space-y-8 flex flex-col items-center md:items-start text-center md:text-left mt-4 md:mt-0">
           <div className="inline-block px-4 py-1.5 border border-rose-gold/60 rounded-full text-rose-gold font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] bg-white/30 backdrop-blur-sm">
             Experiência Premium
           </div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.1] tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.15] md:leading-[1.1] tracking-tight">
             A Jornada do Autoconhecimento.
           </h1>
-          <p className="font-body text-lg text-warm-ink/80 leading-relaxed font-light max-w-md">
+          <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-relaxed font-light max-w-[20rem] sm:max-w-md">
             Um espaço dedicado ao seu equilíbrio. Redescubra a clareza e a paz interior através de práticas ancestrais em um ambiente de luxo minimalista.
           </p>
-          <div className="pt-4">
-            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-8 py-4 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
+          <div className="pt-2 md:pt-4">
+            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
               Agendar Sessão
               <ArrowRight size={18} strokeWidth={2} />
             </a>
           </div>
         </div>
         
-        <div className="md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative mt-12 md:mt-0">
-          <div className="relative w-full max-w-[500px] aspect-square md:aspect-[4/5] rounded-[100px_40px_100px_40px] overflow-hidden shadow-2xl">
+        <div className="order-1 md:order-2 md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative">
+          <div className="relative w-full max-w-[340px] sm:max-w-[440px] md:max-w-[500px] aspect-square md:aspect-[4/5] rounded-[40px_16px_40px_16px] md:rounded-[100px_40px_100px_40px] overflow-hidden shadow-xl md:shadow-2xl">
             <img 
               loading="lazy"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuEydYzA2ud1E3U2VZ4-cNkIBELEjAhgUb4xqT3hPCcAJHH-IE26hJnt7HpF16rzNbDRwNtuEnKY_LzTxKPEwBhsEZbKR3VG24YceRg9YJRSTeL99MpV6fJCjW65DGtGJmsZ-CfD29Z4CktYVBjkEwS8xSfBQJTgVPJ8amKJ7ppKhOlq82L7uXnjoNrK6tGkiIxgFxPWrwHTmXh7QVx9em3Jeak1ygOxSZh4zfIe08TOxJRmXEVfKcBXv5lry_eyL_3wfWejgL6-w" 
@@ -462,7 +462,7 @@ function Footer() {
             </address>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
             <div className="space-y-6">
               <h4 className="font-body text-xs font-semibold text-rose-gold uppercase tracking-widest">Navegação</h4>
               <ul className="space-y-4 font-body text-sm font-light text-warm-ink/80">
