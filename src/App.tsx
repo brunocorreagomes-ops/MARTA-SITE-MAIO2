@@ -82,7 +82,12 @@ function Hero() {
       <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-dusty-rose/40 blur-[100px] pointer-events-none" />
       
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-center relative z-10 w-full">
-        <div className="order-2 md:order-1 md:col-span-6 lg:col-span-5 space-y-6 md:space-y-8 flex flex-col items-center md:items-start text-center md:text-left mt-4 md:mt-0">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="order-2 md:order-1 md:col-span-6 lg:col-span-5 space-y-6 md:space-y-8 flex flex-col items-center md:items-start text-center md:text-left mt-4 md:mt-0"
+        >
           <div className="inline-block px-4 py-1.5 border border-rose-gold/60 rounded-full text-rose-gold font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] bg-white/30 backdrop-blur-sm">
             Experiência Premium
           </div>
@@ -98,9 +103,14 @@ function Hero() {
               <ArrowRight size={18} strokeWidth={2} />
             </a>
           </div>
-        </div>
+        </motion.div>
         
-        <div className="order-1 md:order-2 md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="order-1 md:order-2 md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative"
+        >
           <div className="relative w-full max-w-[340px] sm:max-w-[440px] md:max-w-[500px] aspect-square md:aspect-[4/5] rounded-[40px_16px_40px_16px] md:rounded-[100px_40px_100px_40px] overflow-hidden shadow-xl md:shadow-2xl">
             <img 
               loading="lazy"
@@ -111,7 +121,7 @@ function Hero() {
           </div>
           
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -119,8 +129,14 @@ function Hero() {
 
 function Manifesto() {
   return (
-    <section id="jornada" className="py-24 md:py-32 bg-dusty-rose/15">
-      <div className="max-w-[800px] mx-auto px-6 text-center space-y-10">
+    <section id="jornada" className="py-24 md:py-32 bg-dusty-rose/15 overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8 }}
+        className="max-w-[800px] mx-auto px-6 text-center space-y-10"
+      >
         <span className="font-body text-xs font-semibold text-rose-gold tracking-[0.2em] uppercase">
           Manifesto
         </span>
@@ -136,7 +152,7 @@ function Manifesto() {
         <div className="pt-8 flex justify-center">
           <div className="h-20 w-px bg-rose-gold/40"></div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -184,7 +200,13 @@ function Services() {
   return (
     <section id="servicos" className="py-24 md:py-32 relative">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+        >
           <div className="max-w-xl">
             <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.15em] mb-4 block">
               Especialidades
@@ -196,9 +218,15 @@ function Services() {
           <p className="font-body text-base font-light text-warm-ink/70 max-w-sm mb-2">
             Técnicas selecionadas para harmonizar frequências e expandir sua visão sobre a vida e propósito.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+        >
           {services.map((s, i) => (
             <motion.div 
               key={i} 
@@ -228,7 +256,7 @@ function Services() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Modal */}
@@ -297,7 +325,13 @@ function About() {
   return (
     <section id="sobre" className="py-24 md:py-32 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-        <div className="lg:col-span-6 relative order-2 lg:order-1 flex flex-col items-center lg:items-start pt-10 lg:pt-0">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="lg:col-span-6 relative order-2 lg:order-1 flex flex-col items-center lg:items-start pt-10 lg:pt-0"
+        >
           <h3 className="font-display text-3xl md:text-4xl text-bordeaux mb-8 font-medium relative z-10 text-center lg:text-left w-full">
             A Guardiã do Espaço
           </h3>
@@ -315,9 +349,15 @@ function About() {
               <div className="absolute inset-0 bg-bordeaux/10 mix-blend-multiply" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-6 space-y-10 order-1 lg:order-2 flex flex-col justify-center">
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:col-span-6 space-y-10 order-1 lg:order-2 flex flex-col justify-center"
+        >
           <div>
             <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
               Sobre a Terapeuta
@@ -335,7 +375,7 @@ function About() {
               Através da "Quietude Estratégica", unimos a sensibilidade espiritual com uma visão clara de bem-estar, proporcionando um acolhimento arquitetado para a sua evolução — seja em nosso espaço presencial ou em nossos cuidados online.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -375,16 +415,28 @@ function Testimonials() {
   return (
     <section className="py-24 md:py-32 bg-dusty-rose/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-16 md:mb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-24"
+        >
           <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
             Vozes da Jornada
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-bordeaux font-medium leading-tight max-w-2xl mx-auto">
             A transformação através do formato online
           </h2>
-        </div>
+        </motion.div>
         
-        <div className="relative max-w-4xl mx-auto flex flex-col items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative max-w-4xl mx-auto flex flex-col items-center"
+        >
           <AnimatePresence mode="wait">
             <motion.div 
               key={currentIndex}
@@ -419,7 +471,7 @@ function Testimonials() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -428,7 +480,13 @@ function Testimonials() {
 function Contact() {
   return (
     <section id="contato" className="py-24 md:py-32 px-6">
-      <div className="max-w-[1200px] mx-auto text-center bg-bordeaux rounded-[40px] md:rounded-[60px] py-24 md:py-32 relative overflow-hidden px-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8 }}
+        className="max-w-[1200px] mx-auto text-center bg-bordeaux rounded-[40px] md:rounded-[60px] py-24 md:py-32 relative overflow-hidden px-6"
+      >
         <div className="absolute inset-0 bg-warm-ink opacity-20 pointer-events-none mix-blend-multiply"></div>
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[150%] bg-white/5 blur-[120px] rounded-full rotate-45 pointer-events-none"></div>
         
@@ -446,7 +504,7 @@ function Contact() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -573,7 +631,13 @@ function FAQ() {
   return (
     <section id="faq" className="py-24 md:py-32 bg-white">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
             Esclarecimentos
           </span>
@@ -583,9 +647,15 @@ function FAQ() {
           <p className="mt-6 text-warm-ink/70 font-body text-lg leading-relaxed max-w-2xl mx-auto">
             Informações sobre o processo terapêutico, nossos serviços e os detalhes para os seus atendimentos presenciais ou online.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-4"
+        >
           {faqs.map((faq, index) => (
             <div 
               key={index} 
@@ -614,7 +684,7 @@ function FAQ() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
