@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown, MessageCircle, Copy, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
@@ -51,7 +51,7 @@ function Navbar() {
             <a href="#sobre" onClick={(e) => scrollToId(e, 'sobre')} className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-warm-ink/70 hover:text-bordeaux transition-colors">Sobre</a>
             <a href="#faq" onClick={(e) => scrollToId(e, 'faq')} className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-warm-ink/70 hover:text-bordeaux transition-colors">Dúvidas Frequentes</a>
             <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20as%20consultas." target="_blank" rel="noopener noreferrer" className="bg-bordeaux text-blush-sand px-7 py-3 rounded-full font-body text-xs font-semibold uppercase tracking-widest hover:bg-bordeaux/90 transition-all hover:shadow-[0_0_20px_rgba(197,160,122,0.3)]">
-              Agendar Sessão
+              Agendar Consulta
             </a>
           </div>
 
@@ -68,7 +68,7 @@ function Navbar() {
         <a href="#sobre" onClick={(e) => scrollToId(e, 'sobre')} className="font-display text-3xl text-bordeaux">Sobre</a>
         <a href="#faq" onClick={(e) => scrollToId(e, 'faq')} className="font-display text-3xl text-bordeaux">Dúvidas Frequentes</a>
         <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20as%20consultas." target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="bg-bordeaux text-blush-sand px-8 py-4 rounded-full font-body text-sm font-semibold uppercase tracking-widest mt-4">
-          Agendar Sessão
+          Agendar Consulta
         </a>
       </div>
     </>
@@ -102,8 +102,8 @@ function Hero() {
             Um espaço dedicado ao seu equilíbrio. Redescubra a clareza e a paz interior através de práticas ancestrais em um ambiente de luxo minimalista.
           </p>
           <div className="pt-2 md:pt-4">
-            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
-              Inicie sua Jornada
+            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
+              Agendar Sessão
               <ArrowRight size={18} strokeWidth={2} />
             </a>
           </div>
@@ -165,14 +165,6 @@ function Manifesto() {
 
 function Services() {
   const [activeServiceIndex, setActiveServiceIndex] = useState<number | null>(null);
-
-  const getCtaText = (title: string) => {
-    if (title.includes('Reequilíbrio')) return 'Iniciar Meu Reequilíbrio';
-    if (title.includes('Direcionamento')) return 'Obter Meu Direcionamento';
-    if (title.includes('Mapa')) return 'Garantir Meu Mapa';
-    if (title.includes('Desbloqueio')) return 'Iniciar Meu Desbloqueio';
-    return 'Agendar Sessão de Retorno';
-  };
 
   const services = [
     {
@@ -322,7 +314,7 @@ function Services() {
                   onClick={() => setActiveServiceIndex(null)} 
                   className="inline-block bg-bordeaux text-white px-8 py-5 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:bg-bordeaux/90 transition-all text-center w-full sm:w-auto shadow-lg shadow-bordeaux/20 hover:shadow-xl self-start hover:-translate-y-1"
                 >
-                  {getCtaText(activeService.title)}
+                  Agendar {activeService.title}
                 </motion.a>
               </div>
 
@@ -498,6 +490,15 @@ function Testimonials() {
 }
 
 function Contact() {
+  const [copied, setCopied] = useState(false);
+  const addressText = "Av. Fábio Ferraz Bicudo, 937 - Jardim Esplanada, Indaiatuba - SP, 13331-590";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(addressText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section id="contato" className="py-48 md:py-64 bg-white relative">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
@@ -522,7 +523,7 @@ function Contact() {
           
           <div className="flex w-full max-w-sm">
             <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada%20e%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer" className="w-full bg-bordeaux text-blush-sand px-8 py-5 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:bg-rose-gold hover:text-white transition-all duration-300 text-center shadow-lg">
-              Agendar Sessão de Retorno
+              Agendar por WhatsApp
             </a>
           </div>
         </motion.div>
@@ -532,10 +533,10 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="w-full relative h-[400px] md:h-[500px] rounded-[32px] overflow-hidden shadow-xl border border-dusty-rose/20"
+          className="w-full relative h-[420px] md:h-[500px] rounded-[32px] overflow-hidden shadow-xl border border-dusty-rose/20 group"
         >
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3663.8115668383!2d-47.21814678440057!3d-23.088300084918732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b3ec48e65af9%3A0x6b7724ff0cde2f21!2sAv.%20F%C3%A1bio%20Ferraz%20Bicudo%2C%20937%20-%20Jardim%20Esplanada%2C%20Indaiatuba%20-%20SP%2C%2013331-590!5e0!3m2!1spt-BR!2sbr!4v1716301321000!5m2!1spt-BR!2sbr" 
+            src="https://maps.google.com/maps?q=Av.%20F%C3%A1bio%20Ferraz%20Bicudo%2C%20937%20-%20Jardim%20Esplanada%2C%20Indaiatuba%20-%20SP%2C%2013331-590&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 
@@ -543,8 +544,39 @@ function Contact() {
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
             title="Localização do consultório"
-            className="grayscale-[30%] contrast-[1.1] hover:grayscale-0 transition-all duration-1000"
+            className="grayscale-[30%] contrast-[1.1] hover:grayscale-0 transition-all duration-1000 pb-[110px] sm:pb-0"
           ></iframe>
+
+          {/* Elegant Address & Copy Overlay */}
+          <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/95 backdrop-blur-md p-4 md:p-5 rounded-[24px] border border-dusty-rose/20 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4 z-10">
+            <div className="text-left">
+              <span className="font-body text-[10px] md:text-xs font-semibold text-rose-gold uppercase tracking-[0.15em] mb-1 block">Nosso Espaço Presencial</span>
+              <p className="font-body text-xs md:text-sm font-normal text-warm-ink/80 leading-normal">
+                Av. Fábio Ferraz Bicudo, 937 — Jardim Esplanada<br className="hidden sm:inline" />
+                Indaiatuba - SP, 13331-590
+              </p>
+            </div>
+            <button 
+              onClick={handleCopy}
+              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body text-xs font-semibold uppercase tracking-wider transition-all duration-300 self-start sm:self-center shrink-0 cursor-pointer ${
+                copied 
+                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
+                  : 'bg-bordeaux text-blush-sand hover:bg-rose-gold hover:text-white border border-transparent hover:shadow-[0_4px_12px_rgba(89,32,37,0.15)] md:px-6'
+              }`}
+            >
+              {copied ? (
+                <>
+                  <Check size={14} className="stroke-[2.5]" />
+                  <span>Copiado!</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={14} />
+                  <span>Copiar Endereço</span>
+                </>
+              )}
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -784,7 +816,7 @@ function MobileCTA() {
       id="mobile-bottom-cta"
     >
       <MessageCircle size={16} className="text-white shrink-0 animate-pulse" />
-      <span>Inicie sua Jornada</span>
+      <span>Agendar via WhatsApp</span>
     </a>
   );
 }
