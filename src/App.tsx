@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowRight, Hand, Layers, Calculator, Sparkles, Instagram, Facebook, Quote, ChevronUp, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ function Navbar() {
             <a href="#sobre" onClick={(e) => scrollToId(e, 'sobre')} className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-warm-ink/70 hover:text-bordeaux transition-colors">Sobre</a>
             <a href="#faq" onClick={(e) => scrollToId(e, 'faq')} className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-warm-ink/70 hover:text-bordeaux transition-colors">Dúvidas Frequentes</a>
             <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20as%20consultas." target="_blank" rel="noopener noreferrer" className="bg-bordeaux text-blush-sand px-7 py-3 rounded-full font-body text-xs font-semibold uppercase tracking-widest hover:bg-bordeaux/90 transition-all hover:shadow-[0_0_20px_rgba(197,160,122,0.3)]">
-              Agendar Consulta
+              Agendar Sessão
             </a>
           </div>
 
@@ -68,7 +68,7 @@ function Navbar() {
         <a href="#sobre" onClick={(e) => scrollToId(e, 'sobre')} className="font-display text-3xl text-bordeaux">Sobre</a>
         <a href="#faq" onClick={(e) => scrollToId(e, 'faq')} className="font-display text-3xl text-bordeaux">Dúvidas Frequentes</a>
         <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20as%20consultas." target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="bg-bordeaux text-blush-sand px-8 py-4 rounded-full font-body text-sm font-semibold uppercase tracking-widest mt-4">
-          Agendar Consulta
+          Agendar Sessão
         </a>
       </div>
     </>
@@ -76,8 +76,12 @@ function Navbar() {
 }
 
 function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
-    <section className="relative min-h-[95vh] flex items-center pt-28 pb-16 md:pt-24 md:pb-12 overflow-hidden">
+    <section ref={ref} className="relative min-h-[95vh] flex items-center pt-28 pb-16 md:pt-24 md:pb-12 overflow-hidden">
       {/* Soft Glow Background Element */}
       <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-dusty-rose/40 blur-[100px] pointer-events-none" />
       
@@ -94,12 +98,12 @@ function Hero() {
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.15] md:leading-[1.1] tracking-tight">
             A Jornada do Autoconhecimento.
           </h1>
-          <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-relaxed font-light max-w-[20rem] sm:max-w-md">
+          <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-normal font-normal max-w-[20rem] sm:max-w-md">
             Um espaço dedicado ao seu equilíbrio. Redescubra a clareza e a paz interior através de práticas ancestrais em um ambiente de luxo minimalista.
           </p>
           <div className="pt-2 md:pt-4">
-            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
-              Agendar Sessão
+            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
+              Inicie sua Jornada
               <ArrowRight size={18} strokeWidth={2} />
             </a>
           </div>
@@ -112,7 +116,8 @@ function Hero() {
           className="order-1 md:order-2 md:col-span-6 lg:col-span-7 flex justify-center md:justify-end relative"
         >
           <div className="relative w-full max-w-[340px] sm:max-w-[440px] md:max-w-[500px] aspect-square md:aspect-[4/5] rounded-[40px_16px_40px_16px] md:rounded-[100px_40px_100px_40px] overflow-hidden shadow-xl md:shadow-2xl">
-            <img 
+            <motion.img 
+              style={{ y, scale: 1.15 }}
               loading="lazy"
               src="https://i.ibb.co/cXbDVjF6/marta-site05.webp" 
               alt="Marta Ana Chiconato - Terapia Holística" 
@@ -129,12 +134,13 @@ function Hero() {
 
 function Manifesto() {
   return (
-    <section id="jornada" className="py-24 md:py-32 bg-dusty-rose/15 overflow-hidden">
+    <section id="jornada" className="py-48 md:py-64 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-[800px] mx-auto px-6 text-center space-y-10"
       >
         <span className="font-body text-xs font-semibold text-rose-gold tracking-[0.2em] uppercase">
@@ -144,7 +150,7 @@ function Manifesto() {
           "A cura não é apenas o alívio do sintoma, mas o retorno estratégico ao seu centro."
         </h2>
         <div className="space-y-6">
-          <p className="font-body text-lg text-warm-ink/80 leading-relaxed font-light text-balance mx-auto">
+          <p className="font-body text-lg text-warm-ink/85 leading-normal font-normal text-balance mx-auto">
             Não existe um único caminho para o equilíbrio. O que propomos aqui é uma desconstrução do óbvio. Menos misticismo vazio, mais autonomia real.
             No silêncio do nosso refúgio, a paz encontra a estratégia para uma vida plena.
           </p>
@@ -160,37 +166,45 @@ function Manifesto() {
 function Services() {
   const [activeServiceIndex, setActiveServiceIndex] = useState<number | null>(null);
 
+  const getCtaText = (title: string) => {
+    if (title.includes('Reequilíbrio')) return 'Iniciar Meu Reequilíbrio';
+    if (title.includes('Direcionamento')) return 'Obter Meu Direcionamento';
+    if (title.includes('Mapa')) return 'Garantir Meu Mapa';
+    if (title.includes('Desbloqueio')) return 'Iniciar Meu Desbloqueio';
+    return 'Agendar Sessão de Retorno';
+  };
+
   const services = [
     {
       icon: Hand,
-      title: 'Reiki',
-      desc: 'Canalização de energia vital para harmonização profunda dos centros energéticos e redução imediata do estresse.',
+      title: 'Reequilíbrio Energético Estratégico',
+      desc: 'Alinhamento vibracional profundo para reduzir o estresse, restaurar a vitalidade e devolver o foco no que realmente importa.',
       tag: 'Restaurativo & Sutil',
-      fullDesc: 'O Reiki é uma técnica milenar de imposição de mãos que atua diretamente nos chakras, promovendo um alinhamento energético profundo. Durante a sessão, o paciente experimenta um relaxamento intenso, aliviando tensões físicas e mentais acumuladas. É ideal para quem busca reequilíbrio emocional, clareza mental e uma pausa restauradora no ritmo acelerado do dia a dia.',
+      fullDesc: 'Este processo de alinhamento atua diretamente na raiz dos desequilíbrios emocionais e físicos. Através da harmonização de seus centros de força vital, você experimenta um relaxamento celular intenso, promovendo alívio duradouro de tensões acumuladas. Perfeito para quem busca clareza mental imediata, revigoramento pessoal e um porto seguro de descompressão diária.',
       image: 'https://i.ibb.co/tPF5XdQX/marta-reiki-luxury.webp'
     },
     {
       icon: Layers,
-      title: 'Baralho Cigano',
-      desc: 'Aconselhamento terapêutico e orientação estratégica através da simbologia milenar para clareza em decisões.',
-      tag: 'Clareza & Direção',
-      fullDesc: 'Mais do que previsão, o Baralho Cigano é uma ferramenta de autoconhecimento e planejamento estratégico. Através da leitura dos arquétipos e das cartas, desvendamos cenários ocultos e padrões de comportamento. Essa técnica oferece um mapa claro para a tomada de decisões importantes, ajudando você a alinhar suas ações com seus propósitos mais verdadeiros e a navegar pelos desafios com confiança.',
+      title: 'Direcionamento Estratégico de Vida',
+      desc: 'Decisões seguras e mapeamento de cenários através de leitura terapêutica para desatar nós e abrir caminhos.',
+      tag: 'Clareza & Decisão',
+      fullDesc: 'Mais do que previsão, criamos um mapa prático de autoconhecimento direcionado aos seus maiores desafios. Ao desvendar padrões inconscientes e cenários futuros mais prováveis, você adquire a clareza e a autonomia necessárias para fazer escolhas seguras nas esferas amorosa, de carreira e no desenvolvimento pessoal.',
       image: 'https://i.ibb.co/fdQXYHry/marta-tarot-luxury.webp'
     },
     {
       icon: Calculator,
-      title: 'Numerologia',
-      desc: 'Mapeamento do seu propósito de vida, entregue de forma online com material estruturado e personalizado.',
+      title: 'Mapa Prático de Propósito',
+      desc: 'Mapeamento do seu projeto de alma, entregue de forma digital com orientações personalizadas para alinhar carreira e vida.',
       tag: 'Estratégia & Online',
-      fullDesc: 'A Numerologia Terapêutica é o estudo vibracional dos seus números desde o nascimento. Para garantir a profundidade do estudo e a elaboração minuciosa de um material rico e 100% personalizado que servirá como seu guia estratégico de vida, os atendimentos desta especialidade possuem foco exclusivo no formato online.',
+      fullDesc: 'Um estudo minucioso que traduz seus números natais em diretrizes concretas de prosperidade e realização. Você receberá um dossiê completo e 100% autoral que funciona como uma bússola pessoal vitalícia, ideal para quem deseja transicionar de carreira, destravar talentos naturais e viver alinhado à sua verdadeira vocação.',
       image: 'https://i.ibb.co/nNGpQyHj/marta-numerologia-luxury.webp'
     },
     {
       icon: Sparkles,
-      title: 'Radiestesia',
-      desc: 'Diagnóstico e reequilíbrio energético estruturado com foco em atendimentos à distância e relatórios precisos.',
+      title: 'Desbloqueio Vibracional à Distância',
+      desc: 'Rastreamento, neutralização e blindagem de interferências invisíveis que bloqueiam sua prosperidade e bem-estar.',
       tag: 'Limpeza à Distância',
-      fullDesc: 'A Radiestesia trabalha no rastreio e na harmonização das frequências eletromagnéticas. Por exigir muita concentração e a preparação de matrizes e gráficos exclusivos antes da finalização, o trabalho é realizado prioritariamente no campo sutil, à distância e com repasse online, não exigindo a presença física mas garantindo a mesma força vibracional.',
+      fullDesc: 'Identificamos e saneamos as frequências eletromagnéticas e bloqueios inconscientes que impedem sua vida de fluir. Realizado de forma concentrada à distância, este trabalho reestrutura seu campo energético nos âmbitos financeiro, relacional e físico, acompanhado de um relatório detalhado e orientações para manter a estabilidade.',
       image: 'https://i.ibb.co/1GLJqJYz/marta-radiestesia-luxury.webp'
     }
   ];
@@ -198,12 +212,13 @@ function Services() {
   const activeService = activeServiceIndex !== null ? services[activeServiceIndex] : null;
 
   return (
-    <section id="servicos" className="py-24 md:py-32 relative">
+    <section id="servicos" className="py-48 md:py-64 relative screen-section">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
           className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
         >
@@ -215,24 +230,22 @@ function Services() {
               Portais de Transformação
             </h2>
           </div>
-          <p className="font-body text-base font-light text-warm-ink/70 max-w-sm mb-2">
+          <p className="font-body text-base font-normal text-warm-ink/75 max-w-sm mb-2 leading-normal">
             Técnicas selecionadas para harmonizar frequências e expandir sua visão sobre a vida e propósito.
           </p>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((s, i) => (
             <motion.div 
               key={i} 
               layoutId={`service-card-${i}`}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
               onClick={() => setActiveServiceIndex(i)}
-              className="group relative p-6 sm:p-8 rounded-[32px] bg-white transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] border border-warm-ink/5 hover:border-dusty-rose/60 hover:shadow-[0_40px_80px_-20px_rgba(89,32,37,0.2)] hover:-translate-y-4 will-change-transform flex flex-col justify-between items-start h-full cursor-pointer"
+              className="group relative p-6 sm:p-8 rounded-[32px] bg-white transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] border border-warm-ink/5 hover:border-dusty-rose/40 hover:shadow-[0_24px_48px_-12px_rgba(89,32,37,0.08)] hover:-translate-y-2 will-change-transform flex flex-col justify-between items-start h-full cursor-pointer"
             >
               <div className="w-full">
                 <motion.div layoutId={`service-image-${i}`} className="w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/3] mb-8 overflow-hidden rounded-2xl relative shadow-sm">
@@ -242,7 +255,7 @@ function Services() {
                   </div>
                 </motion.div>
                 <motion.h3 layoutId={`service-title-${i}`} className="font-display text-2xl text-bordeaux mb-4 font-medium">{s.title}</motion.h3>
-                <motion.p layoutId={`service-desc-${i}`} className="font-body text-base font-light text-warm-ink/75 leading-relaxed mb-8 transition-opacity duration-500 group-hover:opacity-80">
+                <motion.p layoutId={`service-desc-${i}`} className="font-body text-base font-normal text-warm-ink/80 leading-normal mb-8 transition-opacity duration-500 group-hover:opacity-80">
                   {s.desc}
                 </motion.p>
               </div>
@@ -250,13 +263,13 @@ function Services() {
                 <motion.span layoutId={`service-tag-${i}`} className="font-body text-[10px] font-semibold text-rose-gold/80 uppercase tracking-widest">
                   {s.tag}
                 </motion.span>
-                <span className="font-body text-xl font-light text-rose-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="font-body text-xl font-normal text-rose-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   +
                 </span>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Modal */}
@@ -295,7 +308,7 @@ function Services() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="font-body text-base md:text-lg font-light text-warm-ink/80 leading-relaxed mb-10 text-balance"
+                  className="font-body text-base md:text-lg font-normal text-warm-ink/85 leading-normal mb-10 text-balance"
                 >
                   {activeService.fullDesc}
                 </motion.p>
@@ -309,7 +322,7 @@ function Services() {
                   onClick={() => setActiveServiceIndex(null)} 
                   className="inline-block bg-bordeaux text-white px-8 py-5 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:bg-bordeaux/90 transition-all text-center w-full sm:w-auto shadow-lg shadow-bordeaux/20 hover:shadow-xl self-start hover:-translate-y-1"
                 >
-                  Agendar {activeService.title}
+                  {getCtaText(activeService.title)}
                 </motion.a>
               </div>
 
@@ -322,14 +335,19 @@ function Services() {
 }
 
 function About() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
   return (
-    <section id="sobre" className="py-24 md:py-32 bg-white overflow-hidden">
+    <section ref={ref} id="sobre" className="py-48 md:py-64 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="lg:col-span-6 relative order-2 lg:order-1 flex flex-col items-center lg:items-start pt-10 lg:pt-0"
         >
           <h3 className="font-display text-3xl md:text-4xl text-bordeaux mb-8 font-medium relative z-10 text-center lg:text-left w-full">
@@ -340,22 +358,23 @@ function About() {
             <div className="absolute -inset-4 md:-inset-6 border border-rose-gold/30 rounded-[60px_120px] -rotate-2 scale-95 lg:scale-100 hidden sm:block"></div>
             
             <div className="relative overflow-hidden rounded-[40px_100px] shadow-2xl aspect-[4/5] md:aspect-auto md:h-[700px] w-full">
-              <img 
+              <motion.img 
+                style={{ y, scale: 1.2 }}
                 loading="lazy"
                 src="https://i.ibb.co/cXbDVjF6/marta-site05.webp" 
                 alt="Marta Ana Chiconato - Terapia Integrativa" 
                 className="w-full h-full object-cover object-center grayscale-[30%] sepia-[15%] contrast-[1.1] transform hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute inset-0 bg-bordeaux/10 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-bordeaux/10 mix-blend-multiply pointer-events-none" />
             </div>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="lg:col-span-6 space-y-10 order-1 lg:order-2 flex flex-col justify-center"
         >
           <div>
@@ -367,7 +386,7 @@ function About() {
             </h2>
           </div>
           
-          <div className="space-y-6 font-body text-lg text-warm-ink/80 font-light leading-relaxed">
+          <div className="space-y-6 font-body text-lg text-warm-ink/85 font-normal leading-normal">
             <p>
               Minha missão é ser a ponte entre o seu estado atual e a sua melhor versão vibracional. Com anos de dedicação às terapias integrativas, entendo que cada pessoa carrega um universo único que merece ser decifrado com respeito e precisão.
             </p>
@@ -384,19 +403,19 @@ function About() {
 function Testimonials() {
   const testimonials = [
     {
-      quote: "Fazer meu mapa numerológico online com a Marta foi um divisor de águas. O material personalizado que recebi é um guia meticuloso que consulto diariamente. A distância não diminuiu em nada a conexão, pelo contrário, deixou tudo mais confortável.",
+      quote: "Elaborar meu mapa de propósito online com a Marta foi um divisor de águas. O material personalizado que recebi é um guia meticuloso que consulto diariamente. A distância não diminuiu em nada a conexão; pelo contrário, tornou o estudo ainda mais confortável e profundo.",
       author: "Carolina S.",
-      service: "Numerologia Online"
+      service: "Mapa de Propósito"
     },
     {
-      quote: "A harmonização à distância pela radiestesia trouxe uma leveza imediata para minha casa e meus negócios. O relatório detalhado me ajudou a entender padrões e pontos de energia que eu jamais imaginaria, de forma muito clara.",
+      quote: "A harmonização à distância e o desbloqueio vibracional trouxeram uma leveza imediata para minha casa e meus negócios. O relatório detalhado me ajudou a reestruturar meus padrões e pontos de energia de forma surpreendente.",
       author: "Mariana L.",
-      service: "Radiestesia à Distância"
+      service: "Desbloqueio Vibracional"
     },
     {
-      quote: "A leitura do baralho cigano online me deu a direção estratégica e acolhedora que eu precisava. O atendimento é primoroso, superou todas as minhas expectativas e me passou muita confiança para os próximos passos.",
+      quote: "O direcionamento estratégico online me deu a clareza e as respostas seguras de que eu precisava. O acolhimento é primoroso, superou todas as minhas expectativas e me passou total confiança para os meus próximos passos.",
       author: "Juliana M.",
-      service: "Baralho Cigano Online"
+      service: "Direcionamento Estratégico"
     }
   ];
 
@@ -413,13 +432,14 @@ function Testimonials() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 md:py-32 bg-dusty-rose/10 overflow-hidden">
+    <section className="py-48 md:py-64 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
           <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
@@ -431,10 +451,10 @@ function Testimonials() {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="relative max-w-4xl mx-auto flex flex-col items-center"
         >
           <AnimatePresence mode="wait">
@@ -447,7 +467,7 @@ function Testimonials() {
               className="bg-white p-10 md:p-14 rounded-[40px] shadow-sm border border-warm-ink/5 w-full flex flex-col items-center text-center"
             >
               <Quote size={40} className="text-rose-gold/40 mb-8" strokeWidth={1} />
-              <p className="font-body text-xl md:text-2xl font-light text-warm-ink/80 leading-relaxed mb-10 text-balance max-w-2xl">
+              <p className="font-body text-xl md:text-2xl font-normal text-warm-ink/85 leading-normal mb-10 text-balance max-w-2xl">
                 "{testimonials[currentIndex].quote}"
               </p>
               <div>
@@ -479,32 +499,54 @@ function Testimonials() {
 
 function Contact() {
   return (
-    <section id="contato" className="py-24 md:py-32 px-6">
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8 }}
-        className="max-w-[1200px] mx-auto text-center bg-bordeaux rounded-[40px] md:rounded-[60px] py-24 md:py-32 relative overflow-hidden px-6"
-      >
-        <div className="absolute inset-0 bg-warm-ink opacity-20 pointer-events-none mix-blend-multiply"></div>
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[150%] bg-white/5 blur-[120px] rounded-full rotate-45 pointer-events-none"></div>
-        
-        <div className="relative z-10 space-y-8 flex flex-col items-center">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-blush-sand font-medium mb-4 text-balance">
+    <section id="contato" className="py-48 md:py-64 bg-white relative">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
+      
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-8 flex flex-col items-start"
+        >
+          <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-2 block">
+            Contato
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-bordeaux font-medium mb-4 text-balance">
             Pronta para iniciar seu retorno?
           </h2>
-          <p className="font-body text-lg text-dusty-rose/80 font-light max-w-xl mx-auto mb-10 text-balance">
+          <p className="font-body text-lg text-warm-ink/85 font-normal max-w-xl mb-10 text-balance leading-normal">
             Escolha um momento para si e permita que o equilíbrio volte a ser sua prioridade. Entre em contato para agendar sua consulta presencial ou online.
           </p>
           
-          <div className="flex justify-center w-full max-w-sm mx-auto">
-            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada%20e%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer" className="w-full bg-rose-gold text-white px-8 py-5 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:bg-white hover:text-bordeaux transition-all duration-300 text-center shadow-lg hover:shadow-[0_0_40px_rgba(197,160,122,0.4)]">
-              Agendar por WhatsApp
+          <div className="flex w-full max-w-sm">
+            <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada%20e%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer" className="w-full bg-bordeaux text-blush-sand px-8 py-5 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:bg-rose-gold hover:text-white transition-all duration-300 text-center shadow-lg">
+              Agendar Sessão de Retorno
             </a>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          className="w-full relative h-[400px] md:h-[500px] rounded-[32px] overflow-hidden shadow-xl border border-dusty-rose/20"
+        >
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3663.8115668383!2d-47.21814678440057!3d-23.088300084918732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b3ec48e65af9%3A0x6b7724ff0cde2f21!2sAv.%20F%C3%A1bio%20Ferraz%20Bicudo%2C%20937%20-%20Jardim%20Esplanada%2C%20Indaiatuba%20-%20SP%2C%2013331-590!5e0!3m2!1spt-BR!2sbr!4v1716301321000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização do consultório"
+            className="grayscale-[30%] contrast-[1.1] hover:grayscale-0 transition-all duration-1000"
+          ></iframe>
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -519,7 +561,13 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-dusty-rose/30 mt-12">
+    <motion.footer 
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-white border-t border-dusty-rose/30 mt-12"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
@@ -527,10 +575,10 @@ function Footer() {
             <div className="flex items-center">
               <img loading="lazy" src="https://i.ibb.co/ZRyY8vsp/marta-logo-site.webp" alt="Marta Ana Chiconato" className="h-14 object-contain" />
             </div>
-            <p className="font-body text-base font-light text-warm-ink/70 max-w-sm leading-relaxed">
+            <p className="font-body text-base font-normal text-warm-ink/80 max-w-sm leading-normal">
               Terapia Integrativa.
             </p>
-            <address className="not-italic font-body text-sm font-light text-warm-ink/60 mt-4 leading-relaxed">
+            <address className="not-italic font-body text-sm font-normal text-warm-ink/70 mt-4 leading-normal">
               Av. Fábio Ferraz Bicudo, 937<br/>
               Jardim Esplanada — Indaiatuba, SP<br/>
               CEP: 13331-590
@@ -540,7 +588,7 @@ function Footer() {
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
             <div className="space-y-6">
               <h4 className="font-body text-xs font-semibold text-rose-gold uppercase tracking-widest">Navegação</h4>
-              <ul className="space-y-4 font-body text-sm font-light text-warm-ink/80">
+              <ul className="space-y-4 font-body text-sm font-normal text-warm-ink/80 leading-normal">
                 <li><a href="#jornada" onClick={(e) => scrollToMenuId(e, 'jornada')} className="hover:text-bordeaux transition-colors">A Jornada</a></li>
                 <li><a href="#servicos" onClick={(e) => scrollToMenuId(e, 'servicos')} className="hover:text-bordeaux transition-colors">Serviços</a></li>
                 <li><a href="#sobre" onClick={(e) => scrollToMenuId(e, 'sobre')} className="hover:text-bordeaux transition-colors">Marta Ana</a></li>
@@ -548,7 +596,7 @@ function Footer() {
             </div>
             <div className="space-y-6">
               <h4 className="font-body text-xs font-semibold text-rose-gold uppercase tracking-widest">Suporte</h4>
-              <ul className="space-y-4 font-body text-sm font-light text-warm-ink/80">
+              <ul className="space-y-4 font-body text-sm font-normal text-warm-ink/80 leading-normal">
                 <li><a href="#faq" onClick={(e) => scrollToMenuId(e, 'faq')} className="hover:text-bordeaux transition-colors">FAQ</a></li>
                 <li><Link to="/privacidade" className="hover:text-bordeaux transition-colors">Privacidade</Link></li>
                 <li><Link to="/termos" className="hover:text-bordeaux transition-colors">Termos</Link></li>
@@ -556,7 +604,7 @@ function Footer() {
             </div>
             <div className="space-y-6 hidden md:block">
               <h4 className="font-body text-xs font-semibold text-rose-gold uppercase tracking-widest">Social</h4>
-              <ul className="space-y-4 font-body text-sm font-light text-warm-ink/80">
+              <ul className="space-y-4 font-body text-sm font-normal text-warm-ink/80 leading-normal">
                 <li>
                   <a href="https://instagram.com/martaana.terapia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-bordeaux transition-colors">
                     <Instagram size={16} strokeWidth={1.5} />
@@ -576,7 +624,7 @@ function Footer() {
         </div>
 
         <div className="border-t border-dusty-rose/30 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
-          <div className="font-body text-xs font-light text-warm-ink/50 text-center md:text-left">
+          <div className="font-body text-xs font-normal text-warm-ink/50 text-center md:text-left">
             <p>
               © {new Date().getFullYear()} Marta Ana Chiconato. Todos os direitos reservados.
             </p>
@@ -585,16 +633,16 @@ function Footer() {
             </p>
           </div>
           <div className="flex gap-6 md:hidden">
-             <a href="https://instagram.com/martaana.terapia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-light text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
+             <a href="https://instagram.com/martaana.terapia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-normal text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
                <Instagram size={14} strokeWidth={1.5} /> Insta
              </a>
-             <a href="https://www.facebook.com/profile.php?id=61576445813285" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-light text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
+             <a href="https://www.facebook.com/profile.php?id=61576445813285" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-normal text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
                <Facebook size={14} strokeWidth={1.5} /> Face
              </a>
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
 
@@ -629,13 +677,14 @@ function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-white">
+    <section id="faq" className="py-48 md:py-64 bg-white relative">
+      <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
@@ -644,21 +693,19 @@ function FAQ() {
           <h2 className="font-display text-4xl md:text-5xl text-bordeaux font-semibold leading-tight">
             Dúvidas Frequentes
           </h2>
-          <p className="mt-6 text-warm-ink/70 font-body text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-warm-ink/80 font-body text-lg font-normal leading-normal max-w-2xl mx-auto">
             Informações sobre o processo terapêutico, nossos serviços e os detalhes para os seus atendimentos presenciais ou online.
           </p>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4"
-        >
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div 
+            <motion.div 
               key={index} 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.05, ease: "easeOut" }}
               className="border border-warm-ink/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-dusty-rose/40"
             >
               <button
@@ -678,13 +725,13 @@ function FAQ() {
                   openIndex === index ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-6 pt-2 font-body text-warm-ink/80 leading-relaxed font-light">
+                <div className="px-6 pb-6 pt-2 font-body text-warm-ink/85 leading-normal font-normal">
                   {faq.answer}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -737,7 +784,7 @@ function MobileCTA() {
       id="mobile-bottom-cta"
     >
       <MessageCircle size={16} className="text-white shrink-0 animate-pulse" />
-      <span>Agendar via WhatsApp</span>
+      <span>Inicie sua Jornada</span>
     </a>
   );
 }
