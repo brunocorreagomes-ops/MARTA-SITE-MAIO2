@@ -96,10 +96,10 @@ function Hero() {
             Experiência Premium
           </div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.15] md:leading-[1.1] tracking-tight">
-            A Jornada do Autoconhecimento.
+            Clareza Mental, Foco & Alinhamento de Alto Padrão.
           </h1>
           <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-normal font-normal max-w-[20rem] sm:max-w-md">
-            Um espaço dedicado ao seu equilíbrio. Redescubra a clareza e a paz interior através de práticas ancestrais em um ambiente de luxo minimalista.
+            Silencie a sobrecarga mental, desate nós emocionais e blinde sua energia. Um espaço de alto padrão dedicado a elevar sua vitalidade através de terapias integrativas com foco em clareza, direcionamento e bem-estar profundo.
           </p>
           <div className="pt-2 md:pt-4">
             <a href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-bordeaux text-blush-sand px-6 py-3.5 md:px-8 md:py-4 rounded-full font-body text-xs md:text-sm font-semibold uppercase tracking-widest hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(89,32,37,0.2)]">
@@ -170,33 +170,33 @@ function Services() {
     {
       icon: Hand,
       title: 'Reequilíbrio Energético Estratégico',
-      desc: 'Alinhamento vibracional profundo para reduzir o estresse, restaurar a vitalidade e devolver o foco no que realmente importa.',
-      tag: 'Restaurativo & Sutil',
-      fullDesc: 'Este processo de alinhamento atua diretamente na raiz dos desequilíbrios emocionais e físicos. Através da harmonização de seus centros de força vital, você experimenta um relaxamento celular intenso, promovendo alívio duradouro de tensões acumuladas. Perfeito para quem busca clareza mental imediata, revigoramento pessoal e um porto seguro de descompressão diária.',
+      desc: 'Alinhamento vibracional profundo com Reiki para reduzir drasticamente o estresse, restaurar a vitalidade e restabelecer seu foco mental.',
+      tag: 'Técnica: Reiki',
+      fullDesc: 'Este processo de alinhamento atua diretamente na raiz dos desequilízbrios emocionais e de cansaço acumulado utilizando a consagrada técnica de Reiki. Através da harmonização de seus centros de força vital (chakras), você experimenta um relaxamento celular profundo, promovendo descompressão mental imediata, revigoramento pessoal e alívio de tensões do dia a dia.',
       image: 'https://i.ibb.co/tPF5XdQX/marta-reiki-luxury.webp'
     },
     {
       icon: Layers,
       title: 'Direcionamento Estratégico de Vida',
-      desc: 'Decisões seguras e mapeamento de cenários através de leitura terapêutica para desatar nós e abrir caminhos.',
-      tag: 'Clareza & Decisão',
-      fullDesc: 'Mais do que previsão, criamos um mapa prático de autoconhecimento direcionado aos seus maiores desafios. Ao desvendar padrões inconscientes e cenários futuros mais prováveis, você adquire a clareza e a autonomia necessárias para fazer escolhas seguras nas esferas amorosa, de carreira e no desenvolvimento pessoal.',
+      desc: 'Decisões seguras e mapeamento objetivo de cenários com o Baralho Cigano para destravar caminhos profissionais e pessoais.',
+      tag: 'Técnica: Baralho Cigano',
+      fullDesc: 'Muito além de meras previsões, utilizamos a clareza e simbologia profunda do Baralho Cigano Terapêutico para construir um mapa inteligente direcionado aos seus maiores dilemas de vida. Ao identificar padrões repetitivos e descortinar cenários futuros sob nova perspectiva, você ganha a clareza e a segurança necessárias para as suas decisões afetivas, de carreira ou de negócios.',
       image: 'https://i.ibb.co/fdQXYHry/marta-tarot-luxury.webp'
     },
     {
       icon: Calculator,
       title: 'Mapa Prático de Propósito',
-      desc: 'Mapeamento do seu projeto de alma, entregue de forma digital com orientações personalizadas para alinhar carreira e vida.',
-      tag: 'Estratégia & Online',
-      fullDesc: 'Um estudo minucioso que traduz seus números natais em diretrizes concretas de prosperidade e realização. Você receberá um dossiê completo e 100% autoral que funciona como uma bússola pessoal vitalícia, ideal para quem deseja transicionar de carreira, destravar talentos naturais e viver alinhado à sua verdadeira vocação.',
+      desc: 'Dossiê do seu projeto de alma com Numerologia Terapêutica, entregue digitalmente para alinhar seus talentos e seu plano de carreira.',
+      tag: 'Técnica: Numerologia',
+      fullDesc: 'Um mergulho analítico e minucioso guiado pela Numerologia Terapêutica, que traduz os seus números de nascimento em diretrizes de prosperidade, vocação e realização. Você recebe um manual existencial customizado e definitivo de suas potencialidades, ideal para transições de carreira bem-sucedidas e para quem quer viver em congruência com sua real missão.',
       image: 'https://i.ibb.co/nNGpQyHj/marta-numerologia-luxury.webp'
     },
     {
       icon: Sparkles,
       title: 'Desbloqueio Vibracional à Distância',
-      desc: 'Rastreamento, neutralização e blindagem de interferências invisíveis que bloqueiam sua prosperidade e bem-estar.',
-      tag: 'Limpeza à Distância',
-      fullDesc: 'Identificamos e saneamos as frequências eletromagnéticas e bloqueios inconscientes que impedem sua vida de fluir. Realizado de forma concentrada à distância, este trabalho reestrutura seu campo energético nos âmbitos financeiro, relacional e físico, acompanhado de um relatório detalhado e orientações para manter a estabilidade.',
+      desc: 'Rastreamento e saneamento energético por Radiestesia para neutralizar interferências invisíveis que barram seu bem-estar e expansão.',
+      tag: 'Técnica: Radiestesia',
+      fullDesc: 'Identificamos, limpamos e reordenamos desequilíbrios eletromagnéticos e bloqueios de fluxo vital através do uso especializado da Radiestesia e da Mesa Radiónica. Esse tratamento é executado de forma concentrada à distância, organizando vibrações estagnadas no nível físico, relacional e financeiro. Ao final, você recebe um relatório minucioso com orientações práticas de blindagem energética.',
       image: 'https://i.ibb.co/1GLJqJYz/marta-radiestesia-luxury.webp'
     }
   ];
@@ -251,11 +251,16 @@ function Services() {
                   {s.desc}
                 </motion.p>
               </div>
-              <div className="flex justify-between items-center w-full mt-auto">
-                <motion.span layoutId={`service-tag-${i}`} className="font-body text-[10px] font-semibold text-rose-gold/80 uppercase tracking-widest">
-                  {s.tag}
-                </motion.span>
-                <span className="font-body text-xl font-normal text-rose-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex justify-between items-end w-full mt-auto pt-4 border-t border-warm-ink/5">
+                <motion.div layoutId={`service-tag-${i}`} className="flex flex-col text-left">
+                  <span className="font-body text-[9px] font-semibold text-warm-ink/40 uppercase tracking-[0.2em] mb-1.5 leading-none">
+                    Técnica Base
+                  </span>
+                  <span className="font-body text-sm sm:text-base font-semibold text-rose-gold uppercase tracking-[0.12em] leading-none">
+                    {s.tag.replace('Técnica: ', '')}
+                  </span>
+                </motion.div>
+                <span className="font-body text-xl font-normal text-rose-gold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 pb-1">
                   +
                 </span>
               </div>
@@ -293,9 +298,14 @@ function Services() {
 
               <div className="p-8 md:p-12 pt-4 overflow-y-auto">
                 <motion.h3 layoutId={`service-title-${activeServiceIndex}`} className="font-display text-3xl md:text-4xl text-bordeaux mb-4 font-medium leading-tight">{activeService.title}</motion.h3>
-                <motion.span layoutId={`service-tag-${activeServiceIndex}`} className="font-body text-[10px] font-semibold text-rose-gold/90 uppercase tracking-widest block mb-8">
-                  {activeService.tag}
-                </motion.span>
+                <motion.div layoutId={`service-tag-${activeServiceIndex}`} className="flex flex-col text-left mb-8">
+                  <span className="font-body text-[10px] font-semibold text-warm-ink/40 uppercase tracking-[0.2em] mb-1.5 leading-none">
+                    Técnica Base
+                  </span>
+                  <span className="font-body text-base md:text-lg font-semibold text-rose-gold uppercase tracking-[0.12em] leading-none text-left">
+                    {activeService.tag.replace('Técnica: ', '')}
+                  </span>
+                </motion.div>
                 <motion.p 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -378,12 +388,15 @@ function About() {
             </h2>
           </div>
           
-          <div className="space-y-6 font-body text-lg text-warm-ink/85 font-normal leading-normal">
+          <div className="space-y-6 font-body text-base md:text-lg text-warm-ink/85 font-normal leading-normal">
             <p>
-              Minha missão é ser a ponte entre o seu estado atual e a sua melhor versão vibracional. Com anos de dedicação às terapias integrativas, entendo que cada pessoa carrega um universo único que merece ser decifrado com respeito e precisão.
+              Minha missão é ser a ponte entre o seu estado de sobrecarga e o seu centro de equilíbrio absoluto. Com anos de dedicação e estudos profundos em <strong className="font-semibold text-bordeaux">Terapia Integrativa em Indaiatuba</strong>, atuo como canalizadora e mentora holística para guiar você rumo à clareza mental e ao revigoramento pessoal.
             </p>
             <p>
-              Através da "Quietude Estratégica", unimos a sensibilidade espiritual com uma visão clara de bem-estar, proporcionando um acolhimento arquitetado para a sua evolução — seja em nosso espaço presencial ou em nossos cuidados online.
+              Em meu consultório físico no Jardim Esplanada — uma localização tranquila e acolhedora de <strong className="font-semibold text-bordeaux">Indaiatuba, SP</strong> — ou por meio de atendimentos online personalizados, integro as consagradas sabedorias do <strong className="font-semibold text-rose-gold">Reiki</strong>, a orientação estratégica do <strong className="font-semibold text-rose-gold">Baralho Cigano</strong>, a precisão analítica da <strong className="font-semibold text-rose-gold">Numerologia Terapêutica</strong> e a força sutil da <strong className="font-semibold text-rose-gold">Radiestesia</strong> para desatar nós energéticos e abrir caminhos de forma duradoura.
+            </p>
+            <p className="text-sm md:text-base text-warm-ink/75 italic border-l-2 border-rose-gold/40 pl-4 py-1">
+              Seja você morador de Indaiatuba ou de cidades vizinhas da região metropolitana como Salto, Itu e Campinas, ou alguém em busca de acolhimento de alto padrão por meio das consultas online, aqui você encontra um refúgio físico e vibracional seguro, ético e de refinado rigor técnico.
             </p>
           </div>
         </motion.div>
@@ -638,7 +651,7 @@ function Footer() {
               <h4 className="font-body text-xs font-semibold text-rose-gold uppercase tracking-widest">Social</h4>
               <ul className="space-y-4 font-body text-sm font-normal text-warm-ink/80 leading-normal">
                 <li>
-                  <a href="https://instagram.com/martaana.terapia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-bordeaux transition-colors">
+                  <a href="https://instagram.com/martaanachiconato" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-bordeaux transition-colors">
                     <Instagram size={16} strokeWidth={1.5} />
                     Instagram
                   </a>
@@ -665,7 +678,7 @@ function Footer() {
             </p>
           </div>
           <div className="flex gap-6 md:hidden">
-             <a href="https://instagram.com/martaana.terapia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-normal text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
+             <a href="https://instagram.com/martaanachiconato" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-normal text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
                <Instagram size={14} strokeWidth={1.5} /> Insta
              </a>
              <a href="https://www.facebook.com/profile.php?id=61576445813285" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-body text-xs font-normal text-warm-ink/70 uppercase tracking-wider hover:text-bordeaux transition-colors">
@@ -680,24 +693,24 @@ function Footer() {
 
 const faqs = [
   {
-    question: "O que é a Terapia Integrativa e como ela pode me ajudar?",
-    answer: "A Terapia Integrativa é uma abordagem voltada para o indivíduo como um todo — mente, corpo e energia. Ela ajuda a liberar bloqueios emocionais, reduzir a ansiedade e promover um profundo autoconhecimento, restaurando o seu equilíbrio natural e a clareza mental para lidar com os desafios da vida."
+    question: "O que é a Terapia Integrativa e como ela pode me ajudar em Indaiatuba?",
+    answer: "A Terapia Integrativa é uma abordagem de saúde sob medida que trata o interagente considerando mente, corpo e seu padrão de frequência energética de forma unificada. Através do consultório de alta qualidade da terapeuta Marta Ana Chiconato em Indaiatuba, SP, ou através de suas dinâmicas de acolhimento online, ela ajuda a aliviar a sobrecarga mental do cotidiano estressante, resgatar seu foco e destravar fluxos estagnados, trazendo sustentação real para que você viva com inteireza e clareza de propósito."
   },
   {
-    question: "Como funciona a consulta presencial em Indaiatuba?",
-    answer: "Nosso espaço de atendimento presencial oferece um ambiente de acolhimento focado no seu bem-estar, localizado em ponto de fácil acesso na Av. Fábio Ferraz Bicudo, 937, no Jardim Esplanada, em Indaiatuba - SP. O espaço é desenhado de forma minimalista para proporcionar silêncio, tranquilidade e privacidade."
+    question: "Quais as principais especialidades oferecidas por Marta Ana Chiconato?",
+    answer: "Marta disponibiliza quatro técnicas principais desenhadas para curas profundas e respostas precisas: (1) Reequilíbrio Energético Estratégico utilizando a técnica milenar de Reiki para harmonizar cansaço celular e reativar os centros vibracionais; (2) Direcionamento Estratégico de Vida através do Baralho Cigano para obter previsões reflexivas e destrinchar cenários pessoais/gerenciais; (3) Mapa Prático de Propósito ancorado na Numerologia Terapêutica de nascimento como um dossiê existencial; e (4) Desbloqueio Vibracional à Distância por meio de varreduras precisas de Radiestesia para neutralizar frequências nocivas."
   },
   {
-    question: "Posso realizar a terapia online ou apenas presencial?",
-    answer: "Oferecemos flexibilidade total para o seu momento. Você pode agendar sessões presenciais em nosso espaço em Indaiatuba ou optar pelas sessões de cuidado online, que entregam a mesma profundidade, empatia e excelentes resultados na jornada de autoconhecimento, no conforto da sua casa."
+    question: "Como funciona o atendimento presencial no Jardim Esplanada em Indaiatuba?",
+    answer: "Nosso refúgio presencial em Indaiatuba é estrategicamente posicionado em uma de suas avenidas mais nobres: na Av. Fábio Ferraz Bicudo, 937 - Jardim Esplanada. Cada detalhe arquitetônico foi planejado sob a ótica da Quietude Estratégica, combinando iluminação suave, silêncio absoluto e privacidade restrita para que sua experiência física com as técnicas de Reiki e Baralho Cigano ocorra de forma premium e inesquecível."
   },
   {
-    question: "Como é a abordagem focada no autoconhecimento?",
-    answer: "Trabalhamos através da 'Quietude Estratégica', um método que foca em promover pausas conscientes, aliada a ferramentas terapêuticas holísticas que permitem escutar sua voz interior. É uma jornada contínua onde mapeamos juntos as razões do seu estado atual e as transformamos de dentro para fora."
+    question: "É possível realizar consultas e leituras terapêuticas no formato online?",
+    answer: "Sim, absolutamente. Para que a distância geográfica nunca seja um obstáculo para sua expansão pessoal, Marta Ana Chiconato estruturou atendimentos online do Baralho Cigano e entrega com precisão milimétrica e repasse de áudio o Mapa de Propósito (Numerologia) e as neutralizações e blindagens da Radiestesia à distância, estendendo seu suporte a clientes de toda a RMC (Campinas, Valinhos, Vinhedo, Salto, Itu) e do exterior."
   },
   {
-    question: "Qual é a duração ideal e a frequência das consultas?",
-    answer: "Cada sessão dura cerca de 60 a 90 minutos, a depender do fluxo do seu processo. A frequência inicial recomendada geralmente é semanal ou quinzenal, para construirmos uma base sólida, mas é sempre adaptada de forma personalizada às suas necessidades e ao momento de vida em que você se encontra."
+    question: "Como agendar uma sessão de Terapia Integrativa com Marta em Indaiatuba?",
+    answer: "Os agendamentos presenciais ou virtuais são organizados exclusivamente com marcação planejada. É possível solicitar datas de retorno ou primeiras sessões e tirar eventuais dúvidas enviando uma mensagem no WhatsApp (+55 19 99922-0089). Você será acolhido de forma individualizada para que iniciemos juntos sua reconstrução vibracional."
   }
 ];
 
