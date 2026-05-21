@@ -133,32 +133,85 @@ function Hero() {
 }
 
 function Manifesto() {
+  const pillars = [
+    {
+      num: "I",
+      title: "Autonomia de Cura",
+      desc: "Menos misticismo vazio e mais protagonismo real. Conduzimos você a decifrar seus próprios ritmos e resgatar o controle de seus estados emocionais e espirituais."
+    },
+    {
+      num: "II",
+      title: "Quietude Estratégica",
+      desc: "A pausa consciente não é recuo, mas o maior ato de poder contemporâneo. No silêncio refinado do nosso espaço, sua mente arquiteta as próximas decisões de alto nível."
+    },
+    {
+      num: "III",
+      title: "Rigor & Sensibilidade",
+      desc: "Práticas ancestrais amparadas por um refinado rigor técnico. Métodos integrativos estruturados sob medida para quem exige eficácia, elegância e acolhimento de alto padrão."
+    }
+  ];
+
   return (
-    <section id="jornada" className="py-48 md:py-64 bg-white relative overflow-hidden">
+    <section id="jornada" className="pt-28 pb-16 md:pt-40 md:pb-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
-      <motion.div 
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-[800px] mx-auto px-6 text-center space-y-10"
-      >
-        <span className="font-body text-xs font-semibold text-rose-gold tracking-[0.2em] uppercase">
-          Manifesto
-        </span>
-        <h2 className="font-display text-4xl md:text-5xl text-bordeaux italic font-medium leading-tight text-balance">
-          "A cura não é apenas o alívio do sintoma, mas o retorno estratégico ao seu centro."
-        </h2>
-        <div className="space-y-6">
-          <p className="font-body text-lg text-warm-ink/85 leading-normal font-normal text-balance mx-auto">
-            Não existe um único caminho para o equilíbrio. O que propomos aqui é uma desconstrução do óbvio. Menos misticismo vazio, mais autonomia real.
-            No silêncio do nosso refúgio, a paz encontra a estratégia para uma vida plena.
+      
+      {/* Decorative subtle ambient elements to add visual texture */}
+      <div className="absolute left-[-15%] top-[40%] w-[35vw] h-[35vw] rounded-full bg-blush-sand/30 blur-[120px] pointer-events-none" />
+      <div className="absolute right-[-15%] top-[15%] w-[35vw] h-[35vw] rounded-full bg-dusty-rose/20 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-[850px] mx-auto text-center space-y-6 md:space-y-8"
+        >
+          <span className="font-body text-[10px] md:text-xs font-semibold text-rose-gold tracking-[0.25em] uppercase px-4 py-1.5 border border-rose-gold/25 rounded-full bg-blush-sand/10 backdrop-blur-sm inline-block">
+            Nossa Filosofia
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-bordeaux italic font-medium leading-tight text-balance">
+            "A cura não é apenas o alívio temporário de um sintoma, mas o retorno estratégico ao seu próprio centro."
+          </h2>
+          <p className="font-body text-base md:text-lg text-warm-ink/80 leading-relaxed font-normal max-w-2xl mx-auto">
+            Não propomos fórmulas genéricas ou dogmas rígidos. Acreditamos na potência terapêutica de um espaço planejado para o recolhimento e na eficácia de sabedorias milenares que estruturam sua força vital.
           </p>
+        </motion.div>
+
+        {/* Pillars Grid - effectively addressing the blank space with luxurious structured content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-[1100px] mx-auto mt-20 md:mt-24">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+              className="flex flex-col space-y-4 md:space-y-5 p-6 md:p-8 rounded-[24px] bg-blush-sand/[0.15] border border-dusty-rose/15 hover:border-dusty-rose/30 hover:bg-blush-sand/[0.25] transition-all duration-300"
+            >
+              <span className="font-mono text-xs md:text-sm font-semibold text-rose-gold/70 tracking-[0.2em] uppercase leading-none block">
+                {pillar.num}
+              </span>
+              <h3 className="font-display text-xl md:text-2xl font-medium text-bordeaux leading-snug">
+                {pillar.title}
+              </h3>
+              <p className="font-body text-sm text-warm-ink/75 leading-relaxed font-normal">
+                {pillar.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
-        <div className="pt-8 flex justify-center">
-          <div className="h-20 w-px bg-rose-gold/40"></div>
-        </div>
-      </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="pt-16 md:pt-20 flex justify-center"
+        >
+          <div className="h-12 w-px bg-rose-gold/30"></div>
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -204,7 +257,7 @@ function Services() {
   const activeService = activeServiceIndex !== null ? services[activeServiceIndex] : null;
 
   return (
-    <section id="servicos" className="py-48 md:py-64 relative screen-section">
+    <section id="servicos" className="pt-16 pb-48 md:pt-24 md:pb-64 relative screen-section">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <motion.div 
@@ -549,7 +602,7 @@ function Contact() {
           className="w-full relative h-[420px] md:h-[500px] rounded-[32px] overflow-hidden shadow-xl border border-dusty-rose/20 group"
         >
           <iframe 
-            src="https://maps.google.com/maps?q=Av.%20F%C3%A1bio%20Ferraz%20Bicudo%2C%20937%20-%20Jardim%20Esplanada%2C%20Indaiatuba%20-%20SP%2C%2013331-590&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            src="https://maps.google.com/maps?q=Av.%20F%C3%A1bio%20Ferraz%20Bicudo%2C%20937%20-%20Jardim%20Esplanada%2C%20Indaiatuba%20-%20SP%2C%2013331-590%20(Marta%20Ana%20Chiconato%20-%20Terapia%20Integrativa)&t=&z=16&ie=UTF8&iwloc=B&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 
