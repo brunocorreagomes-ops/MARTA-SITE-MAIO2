@@ -95,10 +95,10 @@ function Hero() {
           <div className="inline-block px-4 py-1.5 border border-rose-gold/60 rounded-full text-rose-gold font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] bg-white/30 backdrop-blur-sm">
             Experiência Premium
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.15] md:leading-[1.1] tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-bordeaux font-semibold leading-[1.15] md:leading-[1.1] tracking-tight text-balance">
             Clareza Mental, Foco & Alinhamento de Alto Padrão.
           </h1>
-          <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-normal font-normal max-w-[20rem] sm:max-w-md">
+          <p className="font-body text-base lg:text-lg text-warm-ink/80 leading-normal font-normal text-balance max-w-sm sm:max-w-md">
             Silencie a sobrecarga mental, desate nós emocionais e blinde sua energia. Um espaço de alto padrão dedicado a elevar sua vitalidade através de terapias integrativas com foco em clareza, direcionamento e bem-estar profundo.
           </p>
           <div className="pt-2 md:pt-4">
@@ -257,7 +257,7 @@ function Services() {
   const activeService = activeServiceIndex !== null ? services[activeServiceIndex] : null;
 
   return (
-    <section id="servicos" className="pt-16 pb-48 md:pt-24 md:pb-64 relative screen-section">
+    <section id="servicos" className="pt-16 pb-24 md:pt-24 md:pb-64 relative screen-section">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <motion.div 
@@ -341,15 +341,15 @@ function Services() {
               <div className="w-full h-56 md:h-72 relative shrink-0">
                  <motion.img loading="lazy" layoutId={`service-image-${activeServiceIndex}`} src={activeService.image} className="w-full h-full object-cover" alt={activeService.title} />
                  <div className="absolute inset-0 bg-gradient-to-t from-blush-sand via-blush-sand/40 to-transparent"></div>
-                 <button onClick={() => setActiveServiceIndex(null)} className="absolute top-6 right-6 md:top-8 md:right-8 z-20 text-warm-ink/60 hover:text-bordeaux transition-colors bg-white/90 backdrop-blur-md rounded-full p-2 shadow-sm flex items-center justify-center">
+                 <button onClick={() => setActiveServiceIndex(null)} className="absolute top-4 right-4 md:top-8 md:right-8 z-20 text-warm-ink/60 hover:text-bordeaux transition-colors bg-white/90 backdrop-blur-md rounded-full p-2.5 md:p-2 shadow-sm flex items-center justify-center">
                    <X size={20} strokeWidth={1.5} />
                  </button>
-                 <div className="absolute bottom-6 left-8 md:left-12 w-16 h-16 rounded-2xl bg-white/80 backdrop-blur-md text-bordeaux flex items-center justify-center shadow-lg">
-                   <activeService.icon size={32} strokeWidth={1.5} />
+                 <div className="absolute bottom-5 left-6 md:bottom-6 md:left-12 w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/80 backdrop-blur-md text-bordeaux flex items-center justify-center shadow-lg">
+                   <activeService.icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
                  </div>
               </div>
 
-              <div className="p-8 md:p-12 pt-4 overflow-y-auto">
+              <div className="p-6 md:p-12 pt-4 overflow-y-auto">
                 <motion.h3 layoutId={`service-title-${activeServiceIndex}`} className="font-display text-3xl md:text-4xl text-bordeaux mb-4 font-medium leading-tight">{activeService.title}</motion.h3>
                 <motion.div layoutId={`service-tag-${activeServiceIndex}`} className="flex flex-col text-left mb-8">
                   <span className="font-body text-[10px] font-semibold text-warm-ink/40 uppercase tracking-[0.2em] mb-1.5 leading-none">
@@ -395,7 +395,7 @@ function About() {
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={ref} id="sobre" className="py-48 md:py-64 bg-white relative overflow-hidden">
+    <section ref={ref} id="sobre" className="py-24 md:py-64 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         <motion.div 
@@ -430,7 +430,7 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="lg:col-span-6 space-y-10 order-1 lg:order-2 flex flex-col justify-center"
+          className="lg:col-span-6 space-y-8 lg:space-y-10 order-1 lg:order-2 flex flex-col justify-center"
         >
           <div>
             <span className="font-body text-xs font-semibold text-rose-gold uppercase tracking-[0.2em] mb-4 block">
@@ -490,7 +490,7 @@ function Testimonials() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section className="py-48 md:py-64 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-64 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <motion.div 
@@ -522,7 +522,7 @@ function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="bg-white p-10 md:p-14 rounded-[40px] shadow-sm border border-warm-ink/5 w-full flex flex-col items-center text-center"
+              className="bg-white p-8 md:p-14 rounded-[40px] shadow-sm border border-warm-ink/5 w-full flex flex-col items-center text-center"
             >
               <Quote size={40} className="text-rose-gold/40 mb-8" strokeWidth={1} />
               <p className="font-body text-xl md:text-2xl font-normal text-warm-ink/85 leading-normal mb-10 text-balance max-w-2xl">
@@ -566,7 +566,7 @@ function Contact() {
   };
 
   return (
-    <section id="contato" className="py-48 md:py-64 bg-white relative">
+    <section id="contato" className="py-24 md:py-64 bg-white relative">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -775,7 +775,7 @@ function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-48 md:py-64 bg-white relative">
+    <section id="faq" className="py-24 md:py-64 bg-white relative">
       <div className="absolute top-0 left-6 right-6 border-t border-dusty-rose/30 max-w-[1440px] mx-auto md:left-12 md:right-12" />
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <motion.div 
@@ -862,7 +862,7 @@ function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-6 md:right-8 z-50 p-3 rounded-full bg-rose-gold text-white shadow-lg transition-all duration-300 hover:bg-bordeaux hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 ${
+      className={`fixed bottom-6 right-6 md:right-8 z-50 p-3.5 md:p-3 rounded-full bg-rose-gold text-white shadow-lg transition-all duration-300 hover:bg-bordeaux hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
       }`}
       aria-label="Voltar ao topo"
@@ -878,7 +878,7 @@ function MobileCTA() {
       href="https://wa.me/5519999220089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20para%20iniciar%20minha%20jornada%20e%20agendar%20uma%20consulta."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 left-6 right-22 md:hidden z-50 flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#25D366] text-white font-body text-xs font-semibold tracking-wider uppercase shadow-xl active:scale-95 transition-all duration-300 border border-emerald-400/30 hover:bg-[#20ba54]"
+      className="fixed bottom-6 left-6 right-[80px] sm:right-[96px] md:hidden z-50 flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-full bg-[#25D366] text-white font-body text-xs font-semibold tracking-wider uppercase shadow-xl active:scale-95 transition-all duration-300 border border-emerald-400/30 hover:bg-[#20ba54]"
       id="mobile-bottom-cta"
     >
       <MessageCircle size={16} className="text-white shrink-0 animate-pulse" />
